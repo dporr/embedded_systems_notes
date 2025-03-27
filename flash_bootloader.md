@@ -48,3 +48,18 @@ U-Boot doesn’t seem to support yet
 
 
 ## Write the relevant binaries
+
+* fsbl (BL2) and fsbl2 (backup for BL2) include TF-A
+```shell
+sudo dd of=/dev/sdb1 if=bootloader/trusted-firmware-a/build/stm32mp1/release/tf-a-stm32mp157a-dk1.stm32 bs=1M conv=fdatasync
+```
+
+```shell
+sudo dd of=/dev/sdb2 if=bootloader/trusted-firmware-a/build/stm32mp1/release/tf-a-stm32mp157a-dk1.stm32 bs=1M conv=fdatasync
+```
+
+
+* The `fip` is located in partition 3 or a partition named fip check relevant docs for each target
+```shell
+sudo dd of=/dev/sdb3 if=bootloader/trusted-firmware-a/build/stm32mp1/release/fip.bin  bs=1M conv=fdatasync
+```
