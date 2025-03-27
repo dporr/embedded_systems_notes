@@ -10,6 +10,6 @@ sudo chmod -R 777 /srv/tftp/
 
 # ALWAYS stop and cleanup the tftp server
 ```shell
-sudo systemctl start tftpd-hpa
-sudo rm -rf /srv/tftp/
+sudo systemctl stop tftpd-hpa
+sudo rm -rf /srv/tftp/*
 ```
